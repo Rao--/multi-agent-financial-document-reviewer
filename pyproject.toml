@@ -1,0 +1,24 @@
+[project]
+name = "financial-doc-reviewer"
+version = "0.1.0"
+description = "Local-first multi-agent financial-document reviewer"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28.1",
+    "langchain-core>=1.6.1,<2.0.0",
+    "langgraph>=1.2.10,<2.0.0",
+    "langsmith>=0.11.2,<1.0.0",
+    "opentelemetry-proto>=1.30,<2.0",
+    "pydantic>=2.13.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.0,<10.0.0",
+]
+
+[tool.pytest.ini_options]
+addopts = ["--strict-config", "--strict-markers", "-ra"]
+python_files = ["test_*.py"]
+testpaths = ["tests"]

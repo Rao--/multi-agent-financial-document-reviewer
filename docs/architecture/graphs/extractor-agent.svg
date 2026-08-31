@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="520" viewBox="0 0 1440 520" role="img" aria-labelledby="title desc">
+  <title id="title">Compiled Extractor Agent LangGraph</title>
+  <desc id="desc">The extractor classifies a document, performs deterministic extraction, validates the schema, checks evidence, and finalizes with conditional fail-closed routes.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#2774AE"/></marker>
+    <marker id="fail-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#C56A16"/></marker>
+    <style>
+      .title{font:700 30px Inter,Arial,sans-serif;fill:#18323D}.subtitle{font:16px Inter,Arial,sans-serif;fill:#607680}
+      .node{fill:#E9F4FB;stroke:#2774AE;stroke-width:2.5}.check{fill:#FFF2E5;stroke:#C56A16;stroke-width:2.5}.terminal{fill:#ECF8F1;stroke:#18864B;stroke-width:2.5}.start{fill:#F3F5F6;stroke:#71818A;stroke-width:2}
+      .label{font:600 16px Inter,Arial,sans-serif;fill:#18323D;text-anchor:middle}.small{font:13px Inter,Arial,sans-serif;fill:#607680;text-anchor:middle}
+      .edge{fill:none;stroke:#2774AE;stroke-width:2.5;marker-end:url(#arrow)}.failure{fill:none;stroke:#C56A16;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#fail-arrow)}
+      .edge-label{font:12px Inter,Arial,sans-serif;fill:#A7550B;text-anchor:middle}.legend{font:13px Inter,Arial,sans-serif;fill:#607680}
+    </style>
+  </defs>
+  <rect x="12" y="12" width="1416" height="496" rx="24" fill="#FBFCFC" stroke="#D7E1E5"/>
+  <text x="54" y="66" class="title">Extractor Agent · Compiled LangGraph</text>
+  <text x="54" y="96" class="subtitle">Five deterministic application nodes · zero model calls · provenance required before release</text>
+  <line x1="1040" y1="67" x2="1080" y2="67" class="edge"/><text x="1092" y="72" class="legend">valid path</text>
+  <line x1="1220" y1="67" x2="1260" y2="67" class="failure"/><text x="1272" y="72" class="legend">fail closed</text>
+
+  <rect x="42" y="190" width="105" height="70" rx="35" class="start"/><text x="94" y="231" class="label">START</text>
+  <rect x="185" y="175" width="150" height="100" rx="18" class="node"/><text x="260" y="217" class="label">classify</text><text x="260" y="242" class="small">document type</text>
+  <rect x="375" y="175" width="205" height="100" rx="18" class="node"/><text x="477" y="211" class="label">deterministic</text><text x="477" y="233" class="label">_extract</text><text x="477" y="256" class="small">fields + provenance</text>
+  <rect x="620" y="175" width="180" height="100" rx="18" class="check"/><text x="710" y="217" class="label">schema_validate</text><text x="710" y="242" class="small">typed contract</text>
+  <rect x="840" y="175" width="180" height="100" rx="18" class="check"/><text x="930" y="217" class="label">evidence_guard</text><text x="930" y="242" class="small">source support</text>
+  <rect x="1060" y="175" width="150" height="100" rx="18" class="terminal"/><text x="1135" y="217" class="label">finalize</text><text x="1135" y="242" class="small">release or review</text>
+  <rect x="1260" y="190" width="105" height="70" rx="35" class="start"/><text x="1312" y="231" class="label">END</text>
+
+  <path d="M147 225 H185" class="edge"/><path d="M335 225 H375" class="edge"/><path d="M580 225 H620" class="edge"/><path d="M800 225 H840" class="edge"/><path d="M1020 225 H1060" class="edge"/><path d="M1210 225 H1260" class="edge"/>
+  <path d="M260 275 V350 Q260 375 290 375 H1020 Q1050 375 1080 275" class="failure"/>
+  <path d="M477 275 V330 Q477 350 505 350 H1000 Q1030 350 1070 273" class="failure"/>
+  <path d="M710 275 V310 Q710 330 735 330 H975 Q1015 330 1065 270" class="failure"/>
+  <path d="M930 275 V295 Q930 308 950 308 H970 Q1025 308 1062 265" class="failure"/>
+  <text x="650" y="405" class="edge-label">unsupported, invalid, or ungrounded extraction bypasses release and finalizes for human review</text>
+</svg>

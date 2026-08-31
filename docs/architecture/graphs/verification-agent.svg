@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="650" viewBox="0 0 1440 650" role="img" aria-labelledby="title desc">
+  <title id="title">Compiled Verification Agent LangGraph</title>
+  <desc id="desc">The verification graph validates its request, asks the local model for a bounded decision, authorizes the decision, executes allowlisted tools, and loops within strict limits before finalizing.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#2774AE"/></marker>
+    <marker id="guard-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#C56A16"/></marker>
+    <style>
+      .title{font:700 30px Inter,Arial,sans-serif;fill:#18323D}.subtitle{font:16px Inter,Arial,sans-serif;fill:#607680}
+      .node{fill:#E9F4FB;stroke:#2774AE;stroke-width:2.5}.model{fill:#F2EBFF;stroke:#7652B5;stroke-width:2.5}.guard{fill:#FFF2E5;stroke:#C56A16;stroke-width:2.5}.terminal{fill:#ECF8F1;stroke:#18864B;stroke-width:2.5}.start{fill:#F3F5F6;stroke:#71818A;stroke-width:2}
+      .label{font:600 16px Inter,Arial,sans-serif;fill:#18323D;text-anchor:middle}.small{font:13px Inter,Arial,sans-serif;fill:#607680;text-anchor:middle}
+      .edge{fill:none;stroke:#2774AE;stroke-width:2.5;marker-end:url(#arrow)}.conditional{fill:none;stroke:#C56A16;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#guard-arrow)}
+      .edge-label{font:12px Inter,Arial,sans-serif;fill:#A7550B;text-anchor:middle}.limit{font:600 14px Inter,Arial,sans-serif;fill:#7652B5;text-anchor:middle}.legend{font:13px Inter,Arial,sans-serif;fill:#607680}
+    </style>
+  </defs>
+  <rect x="12" y="12" width="1416" height="626" rx="24" fill="#FBFCFC" stroke="#D7E1E5"/>
+  <text x="54" y="66" class="title">Verification Agent · Compiled LangGraph</text>
+  <text x="54" y="96" class="subtitle">Explicit bounded decision/tool loop · local model only · deterministic authorization guard</text>
+  <line x1="1040" y1="67" x2="1080" y2="67" class="edge"/><text x="1092" y="72" class="legend">execution path</text>
+  <line x1="1220" y1="67" x2="1260" y2="67" class="conditional"/><text x="1272" y="72" class="legend">conditional route</text>
+
+  <rect x="55" y="250" width="108" height="70" rx="35" class="start"/><text x="109" y="291" class="label">START</text>
+  <rect x="205" y="235" width="175" height="100" rx="18" class="guard"/><text x="292" y="277" class="label">validate_request</text><text x="292" y="302" class="small">typed evidence links</text>
+  <rect x="470" y="165" width="190" height="110" rx="18" class="model"/><text x="565" y="207" class="label">model_decision</text><text x="565" y="232" class="small">local Qwen</text><text x="565" y="253" class="small">structured action</text>
+  <rect x="750" y="235" width="180" height="100" rx="18" class="guard"/><text x="840" y="277" class="label">decision_guard</text><text x="840" y="302" class="small">schema + allowlist</text>
+  <rect x="470" y="390" width="190" height="110" rx="18" class="node"/><text x="565" y="432" class="label">execute_tool</text><text x="565" y="457" class="small">normalize or compare</text><text x="565" y="478" class="small">local deterministic tool</text>
+  <rect x="1030" y="235" width="165" height="100" rx="18" class="terminal"/><text x="1112" y="277" class="label">finalize</text><text x="1112" y="302" class="small">closed status</text>
+  <rect x="1260" y="250" width="108" height="70" rx="35" class="start"/><text x="1314" y="291" class="label">END</text>
+
+  <path d="M163 285 H205" class="edge"/>
+  <path d="M380 265 Q420 220 470 220" class="edge"/>
+  <path d="M660 220 Q710 220 750 265" class="edge"/>
+  <path d="M840 335 Q810 445 660 445" class="conditional"/>
+  <path d="M565 390 V295 Q565 280 565 275" class="edge"/>
+  <path d="M930 285 H1030" class="conditional"/>
+  <path d="M1195 285 H1260" class="edge"/>
+
+  <path d="M840 235 C840 120 650 105 585 165" class="conditional"/>
+  <text x="725" y="127" class="edge-label">one invalid-decision repair</text>
+  <path d="M292 335 V555 Q292 580 330 580 H1000 Q1040 580 1070 335" class="conditional"/>
+  <path d="M565 500 V525 Q565 550 595 550 H975 Q1020 550 1055 333" class="conditional"/>
+  <text x="700" y="607" class="edge-label">invalid request, tool failure, or exhausted budget finalizes fail closed</text>
+
+  <rect x="955" y="390" width="355" height="105" rx="18" fill="#F7F3FF" stroke="#B9A3DF"/>
+  <text x="1132" y="423" class="limit">Hard execution limits</text>
+  <text x="1132" y="450" class="small">≤5 model decisions · ≤4 tool calls · ≤1 repair</text>
+  <text x="1132" y="473" class="small">No cloud fallback · no unapproved tools</text>
+</svg>

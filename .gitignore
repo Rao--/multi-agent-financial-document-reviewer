@@ -1,0 +1,38 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+.DS_Store
+.pytest_cache/
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# Local runtime data (documents, audit records, and generated artifacts)
+.local/
+
+# Internal project notes and generated output are not source deliverables
+output/
+outputs/
+
+# Demo and generated documentation (keep README.md and docs/architecture/architecture.md)
+demo/
+docs/demo/
+docs/**/demo-*
+docs/**/compiled-*
+docs/**/*roadmap*
+docs/**/*submission*
+
+# Local reports, trackers, rendered graphs, and audit exports
+*.pdf
+*.xls
+*.xlsx
+*.doc
+*.docx
+*.mmd
+*.jsonl
+*.inspect.ndjson

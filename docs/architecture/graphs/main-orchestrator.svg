@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="620" viewBox="0 0 1440 620" role="img" aria-labelledby="title desc">
+  <title id="title">Compiled main LangGraph orchestrator</title>
+  <desc id="desc">The main workflow routes document extraction through verification and critic handoffs to a deterministic final gate, with fail-closed routes from upstream nodes.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2774AE"/>
+    </marker>
+    <marker id="guard-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#C56A16"/>
+    </marker>
+    <style>
+      .title{font:700 30px Inter,Arial,sans-serif;fill:#18323D}.subtitle{font:16px Inter,Arial,sans-serif;fill:#607680}
+      .node{fill:#E9F4FB;stroke:#2774AE;stroke-width:2.5}.guard{fill:#FFF2E5;stroke:#C56A16;stroke-width:2.5}
+      .terminal{fill:#ECF8F1;stroke:#18864B;stroke-width:2.5}.start{fill:#F3F5F6;stroke:#71818A;stroke-width:2}
+      .label{font:600 16px Inter,Arial,sans-serif;fill:#18323D;text-anchor:middle}.small{font:13px Inter,Arial,sans-serif;fill:#607680;text-anchor:middle}
+      .edge{fill:none;stroke:#2774AE;stroke-width:2.5;marker-end:url(#arrow)}.conditional{fill:none;stroke:#C56A16;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#guard-arrow)}
+      .edge-label{font:12px Inter,Arial,sans-serif;fill:#A7550B;text-anchor:middle}.legend{font:13px Inter,Arial,sans-serif;fill:#607680}
+    </style>
+  </defs>
+  <rect x="12" y="12" width="1416" height="596" rx="24" fill="#FBFCFC" stroke="#D7E1E5"/>
+  <text id="titleText" x="54" y="66" class="title">Main LangGraph Orchestrator</text>
+  <text x="54" y="96" class="subtitle">Compiled application topology · six workflow nodes · deterministic release authority</text>
+  <line x1="1040" y1="67" x2="1080" y2="67" class="edge"/><text x="1092" y="72" class="legend">primary path</text>
+  <line x1="1220" y1="67" x2="1260" y2="67" class="conditional"/><text x="1272" y="72" class="legend">conditional / fail closed</text>
+
+  <rect x="48" y="205" width="112" height="72" rx="36" class="start"/>
+  <text x="104" y="247" class="label">START</text>
+
+  <rect x="205" y="190" width="175" height="102" rx="18" class="node"/>
+  <text x="292" y="230" class="label">extract_documents</text>
+  <text x="292" y="256" class="small">Agent 1 reviews</text>
+
+  <rect x="425" y="190" width="205" height="102" rx="18" class="guard"/>
+  <text x="527" y="224" class="label">verification_input</text>
+  <text x="527" y="246" class="label">_assemble</text>
+  <text x="527" y="270" class="small">deterministic handoff</text>
+
+  <rect x="675" y="190" width="150" height="102" rx="18" class="node"/>
+  <text x="750" y="230" class="label">verification</text>
+  <text x="750" y="256" class="small">Agent 2 graph</text>
+
+  <rect x="870" y="190" width="190" height="102" rx="18" class="guard"/>
+  <text x="965" y="224" class="label">critic_input</text>
+  <text x="965" y="246" class="label">_assemble</text>
+  <text x="965" y="270" class="small">deterministic handoff</text>
+
+  <rect x="1105" y="190" width="130" height="102" rx="18" class="node"/>
+  <text x="1170" y="230" class="label">critic</text>
+  <text x="1170" y="256" class="small">Agent 3</text>
+
+  <rect x="1085" y="430" width="170" height="106" rx="18" class="terminal"/>
+  <text x="1170" y="470" class="label">final_gate</text>
+  <text x="1170" y="495" class="small">deterministic</text>
+  <text x="1170" y="516" class="small">release table</text>
+
+  <rect x="1300" y="447" width="102" height="72" rx="36" class="start"/>
+  <text x="1351" y="489" class="label">END</text>
+
+  <path d="M160 241 H205" class="edge"/>
+  <path d="M380 241 H425" class="edge"/>
+  <path d="M630 241 H675" class="edge"/>
+  <path d="M825 241 H870" class="edge"/>
+  <path d="M1060 241 H1105" class="edge"/>
+  <path d="M1170 292 V430" class="edge"/>
+  <path d="M1255 483 H1300" class="edge"/>
+
+  <path d="M292 292 V360 Q292 390 325 390 H1065 Q1100 390 1115 430" class="conditional"/>
+  <path d="M527 292 V340 Q527 365 555 365 H1035 Q1080 365 1102 430" class="conditional"/>
+  <path d="M750 292 V320 Q750 340 775 340 H1010 Q1065 340 1094 432" class="conditional"/>
+  <path d="M965 292 V310 Q965 320 985 320 H1000 Q1050 320 1087 438" class="conditional"/>
+  <text x="660" y="412" class="edge-label">any upstream failure routes to final_gate and blocks release</text>
+</svg>

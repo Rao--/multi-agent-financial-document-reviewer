@@ -1,0 +1,9 @@
+SYNTHETIC TEST DOCUMENT - NOT REAL
+PAY STUB
+Employee Name: SYNTHETIC PERSON ALPHA
+Employee ID: SYN-EMP-0001
+Employer Name: SYNTHETIC LABS LLC
+Employer EIN: 00-0000001
+Monthly Income: $6,250.00
+Pay Period: 12 months per year
+Pay Period Year: 2025

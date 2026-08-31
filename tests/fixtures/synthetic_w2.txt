@@ -1,0 +1,10 @@
+SYNTHETIC TEST DOCUMENT - NOT REAL
+W-2 TAX FORM
+Employee Name: SYNTHETIC PERSON ALPHA
+Employee SSN: 000-00-0001
+Employee Address: 100 SYNTHETIC WAY
+Employer Name: SYNTHETIC LABS LLC
+Employer EIN: 00-0000001
+Annual Wages: $75,000.00
+Federal Tax Withheld: $7,500.00
+Tax Year: 2025
